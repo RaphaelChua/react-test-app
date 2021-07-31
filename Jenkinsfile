@@ -16,7 +16,7 @@ pipeline {
     stage('Publish') {
       steps {
         bat 'yarn build'
-        bat 'del /f/s/q C:\\website-react\\*'
+        bat 'del /f/s/q "C:\\website-react\\*" && rmdir /s/q "C:\\website-react\\*"'
       }
     }
 
