@@ -7,12 +7,6 @@ pipeline {
       }
     }
 
-    stage('Test') {
-      steps {
-        bat 'yarn test'
-      }
-    }
-
     stage('Publish') {
       steps {
         bat 'yarn build'
