@@ -19,8 +19,12 @@ pipeline {
     stage('Notify') {
       steps {
         slackSend(channel: '#cicd', failOnError: true, message: 'App success', sendAsText: true)
+      }
+    }
+
+    stage("Test") {
+      steps {
         telegramSend(message: 'Hi Serene', chatId: -558326056)
-        telegramSend(chatId: 558326056, message: 'Hello Serene')
       }
     }
 
