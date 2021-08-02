@@ -19,12 +19,7 @@ pipeline {
     stage('Notify') {
       steps {
         slackSend(channel: '#cicd', failOnError: true, message: 'App success', sendAsText: true)
-      }
-    }
-
-    stage("Test") {
-      steps {
-        telegramSend(message: 'Hi Serene', chatId: -558326056)
+        bat 'curl -s -X POST https://api.telegram.org/bot1744027847:AAF8V-o7lnQ0Iwsx0yo88LHMxRhYeRcTbJc/sendMessage -d chat_id=-558326056 -d text="Success"'
       }
     }
 
